@@ -1500,7 +1500,7 @@ input[type=password]:focus,
 input[type=email]:focus,
 select:focus,
 textarea:focus {
-  border-color: #677477;
+  border-color: #101010;
 }
 
 select {
@@ -1597,7 +1597,7 @@ input[type=radio]:checked + label:before {
 }
 input[type=checkbox]:focus + label:before,
 input[type=radio]:focus + label:before {
-  border-color: #677477;
+  border-color: #101010;
 }
 
 input[type=checkbox] + label:before {
@@ -1984,7 +1984,7 @@ ul.feature-icons li:before {
   font-weight: 400;
 }
 ul.feature-icons li:before {
-  background: #677477;
+  background: #101010;
   border-radius: 100%;
   color: #ffffff;
   display: block;
@@ -2170,20 +2170,20 @@ input[type=submit].primary,
 input[type=reset].primary,
 input[type=button].primary,
 .button.primary {
-  background-color: #677477;
+  background-color: #101010;
   color: #ffffff !important;
 }
 input[type=submit].primary:hover,
 input[type=reset].primary:hover,
 input[type=button].primary:hover,
 .button.primary:hover {
-  background-color: #738185;
+  background-color: #1d1d1d;
 }
 input[type=submit].primary:active,
 input[type=reset].primary:active,
 input[type=button].primary:active,
 .button.primary:active {
-  background-color: #5b6769;
+  background-color: #030303;
 }
 input[type=submit].disabled, input[type=submit]:disabled,
 input[type=reset].disabled,
@@ -2558,12 +2558,12 @@ input[type=button]:disabled,
     top: 0;
     width: 100%;
     z-index: 10001;
-    background: #222;
+    background: #101010;
     color: #fff;
     min-width: 320px;
   }
   #titleBar .title {
-    color: #fff;
+    color: #677477;
     display: block;
     font-weight: 700;
     height: 44px;
@@ -2599,8 +2599,8 @@ input[type=button]:disabled,
     font-weight: 900;
   }
   #titleBar .toggle:before {
-    background: #677477;
-    color: #ffffff;
+    background: #101010;
+    color: rgb(255, 132, 0);
     content: "\f0c9";
     display: block;
     font-size: 18px;

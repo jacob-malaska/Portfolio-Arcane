@@ -407,7 +407,7 @@
 
 		&.major {
 			h2 {
-				color: _palette(accent1, bg);
+				color: _palette(fg);
 				font-size: 3.5em;
 
 				& + p {
@@ -1612,12 +1612,12 @@
 				top: 0;
 				width: 100%;
 				z-index: _misc(z-index-base) + 1;
-				background: #222;
+				background: _palette(accent1, bg);
 				color: #fff;
 				min-width: 320px;
 
 				.title {
-					color: #fff;
+					color: _palette(fg);;
 					display: block;
 					font-weight: _font(weight-bold);
 					height: 44px;
@@ -1656,7 +1656,7 @@
 
 					&:before {
 						background: _palette(accent1, bg);
-						color: _palette(accent1, fg-bold);
+						color: _palette(fg-light);
 						content: '\f0c9';
 						display: block;
 						font-size: 18px;
