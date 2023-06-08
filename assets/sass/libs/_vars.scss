@@ -1,0 +1,67 @@
+// Misc.
+	$misc: (
+		z-index-base:		10000,
+		header-side:		'left'
+	);
+
+// Duration.
+	$duration: (
+		header:				0.5s,
+		transition:			0.6s
+	);
+
+// Size.
+	$size: (
+		border-radius:		1px,
+		border-width:		2px,
+		element-height:		2.75em,
+		element-margin:		3em,
+		container-width:	80%
+	);
+
+// Font.
+	$font: (
+		family:			('Inconsolata', monospace),
+		title:			 ('Raleway', sans-serif),
+		family-fixed:		('Source Code Pro', monospace),
+		weight:				400,
+		weight-bold:		700
+	);
+
+// Palette.
+	$palette: (
+		bg:					#141414,
+		fg:					#677477,
+		fg-bold:			#677477,
+		fg-light:			rgb(255, 132, 0),
+		border:				#383838,
+		border-bg:			#fafafa,
+		border2:			#e4e4e4,
+		border2-bg:			#f4f4f4,
+		border3:			#e0e0e0,
+		border3-bg:			#eaeaea,
+
+		accent1: (
+			bg:				#677477,
+			//bg:				#796e62,
+			fg-bold:		#ffffff,
+			fg:				mix(#4acaa8, #ffffff, 25%),
+			fg-light:		mix(#4acaa8, #ffffff, 40%)
+		),
+
+		accent2: (
+			bg:				#989898,
+			fg-bold:		#ffffff,
+			fg:				mix(#989898, #ffffff, 25%),
+			fg-light:		mix(#989898, #ffffff, 40%)
+		),
+
+		header: (
+			bg:				#141414,
+			fg-bold:		#677477,
+			fg:				#a7a7a7,
+			fg-light:		mix(#656565, #ffffff, 40%),
+			border:			#414141
+
+		)
+	);
