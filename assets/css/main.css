@@ -2273,7 +2273,6 @@ input[type=button]:disabled,
   -ms-flex-shrink: 0;
   flex-shrink: 0;
   padding: 2em;
-  margin-top: 2em;
 }
 #header > header .avatar {
   display: block;
@@ -2439,7 +2438,7 @@ input[type=button]:disabled,
 @media screen and (max-width: 1680px) {
   /* Basic */
   body, input, select, textarea {
-    font-size: 13pt;
+    font-size: 12pt;
   }
   /* Header */
   #header {
@@ -2486,7 +2485,7 @@ input[type=button]:disabled,
     overflow-x: hidden;
   }
   body, input, select, textarea {
-    font-size: 11pt;
+    font-size: 8pt;
   }
   /* Image */
   .image.left, .image.right {
@@ -2514,6 +2513,7 @@ input[type=button]:disabled,
     position: fixed;
     top: 0;
     width: 20em;
+    font-size: 8pt;
     z-index: 10002;
     -moz-transform: translateX(-20em);
     -webkit-transform: translateX(-20em);
@@ -2629,7 +2629,7 @@ input[type=button]:disabled,
 @media screen and (max-width: 736px) {
   /* Basic */
   body, input, select, textarea {
-    font-size: 12pt;
+    font: size 12pt;
   }
   h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
     display: none;

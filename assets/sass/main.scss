@@ -1229,6 +1229,8 @@
 		h1, h2, h3, h4, h5, h6 {
 			color: _palette(header, fg-bold);
 
+			
+
 			a {
 				color: _palette(header, fg-bold);
 			}
@@ -1251,7 +1253,7 @@
 		> header {
 			@include vendor('flex-shrink', '0');
 			padding: 2em;
-			margin-top: 2em;
+			//margin-top: 2em;
 			
 
 			.avatar {
@@ -1454,7 +1456,7 @@
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 13pt;
+				font-size: 12pt;
 			}
 
 		/* Header */
@@ -1540,7 +1542,7 @@
 			}
 
 			body, input, select, textarea {
-				font-size: 11pt;
+				font-size: 8pt;
 			}
 
 		/* Image */
@@ -1571,6 +1573,7 @@
 				position: fixed;
 				top: 0;
 				width: $size-header;
+				font-size: 8pt;
 				z-index: _misc(z-index-base) + 2;
 
 				@if _misc(header-side) == 'right' {
@@ -1705,7 +1708,7 @@
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 12pt;
+				font: size 12pt;
 			}
 
 			h1, h2, h3, h4, h5, h6 {
