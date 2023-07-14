@@ -97,6 +97,7 @@ html {
 
 body {
   background: #141414;
+  overflow: auto;
 }
 body.is-preload *, body.is-preload *:before, body.is-preload *:after {
   -moz-animation: none !important;
@@ -107,6 +108,30 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
   -webkit-transition: none !important;
   -ms-transition: none !important;
   transition: none !important;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+  background-color: #141414; /* or add it to the track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #677477; /* or add it to the track */
+  border-radius: 12px;
+}
+
+.body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#header {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#header::-webkit-scrollbar {
+  display: none;
 }
 
 body, input, select, textarea {
@@ -1377,6 +1402,7 @@ pre code {
   margin: 0 auto;
   max-width: calc(100% - 6em);
   width: 80%;
+  overflow-y: auto;
 }
 .container.xsmall {
   width: 20%;
@@ -2438,7 +2464,7 @@ input[type=button]:disabled,
 @media screen and (max-width: 1680px) {
   /* Basic */
   body, input, select, textarea {
-    font-size: 12pt;
+    font-size: 8pt;
   }
   /* Header */
   #header {
@@ -2458,12 +2484,15 @@ input[type=button]:disabled,
   #main > section > .container {
     padding: 4em 0 2em 0;
   }
+  #main > section .container::-webkit-scrollbar { /* WebKit */
+    width: 0px;
+  }
 }
 /* Large */
 @media screen and (max-width: 1280px) {
   /* Basic */
   body, input, select, textarea {
-    font-size: 11pt;
+    font-size: 8pt;
   }
   /* Header */
   #header {
