@@ -6,24 +6,44 @@
 -->
 <html>
 	<head>
-		
+
 		<title>Jacob Malaska Design</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		
+
 		<style>
 			.gallery {
 				display: flex;
 				flex-wrap: wrap;
 			}
-	
-			.gallery-item {
-			cursor: zoom-in;
-        	}
 
-	
-	
+			.gallery-item {
+				cursor: zoom-in;
+				transition: transform 0.3s ease;
+				overflow: hidden;
+			}
+
+			.gallery-item:hover {
+				transform: scale(1.03);
+			}
+
+			/* All clickable images */
+			.image.fit {
+				overflow: hidden;
+			}
+
+			.image.fit img {
+				cursor: zoom-in;
+				transition: transform 0.3s ease;
+			}
+
+			.image.fit:hover img {
+				transform: scale(1.02);
+			}
+
+
+
 			.expanded-image {
 				position: fixed;
 				top: 0;
@@ -36,13 +56,13 @@
 				justify-content: center;
 				align-items: center;
 			}
-	
+
 			.expanded-image img {
 				max-width: 90%;
 				max-height: 90%;
 				object-fit: contain;
 			}
-	
+
 			.expanded {
 				width: 100% !important;
 				height: 100% !important;
@@ -52,8 +72,142 @@
 				right: 0 !important;
 				bottom: 0 !important;
 			}
+
+			/* Page layout width */
+			#main .container {
+				max-width: 1200px;
+				width: 90%;
+			}
+
+			/* Carousel Styles */
+			.carousel {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				margin: 1em 0;
+			}
+
+			.carousel-track {
+				display: flex;
+				transition: transform 0.4s ease-in-out;
+			}
+
+			.carousel-slide {
+				min-width: 100%;
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.carousel-slide img {
+				width: 100%;
+				height: auto;
+				display: block;
+				object-fit: contain;
+				cursor: zoom-in;
+				transition: transform 0.3s ease;
+			}
+
+			.carousel-slide img:hover {
+				transform: scale(1.02);
+			}
+
+			.carousel-btn {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: rgba(0, 0, 0, 0.5);
+				color: #fff;
+				border: none;
+				padding: 0.8em 1em;
+				cursor: pointer;
+				font-size: 1.2em;
+				z-index: 10;
+				transition: background 0.3s ease;
+				line-height: 1;
+			}
+
+			.carousel-btn:hover {
+				background: rgba(255, 20, 147, 0.7);
+			}
+
+			.carousel-btn.prev {
+				left: 0;
+			}
+
+			.carousel-btn.next {
+				right: 0;
+			}
+
+			.carousel-indicators {
+				text-align: center;
+				padding: 0.5em 0;
+			}
+
+			.carousel-indicators span {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				margin: 0 4px;
+				background: #383838;
+				border-radius: 50%;
+				cursor: pointer;
+				transition: background 0.3s ease;
+			}
+
+			.carousel-indicators span.active {
+				background: rgb(255, 20, 147);
+			}
+
+			.mainline-group {
+				margin-bottom: 3em;
+			}
+
+			.mainline-group h3 {
+				font-family: 'Raleway', sans-serif;
+				font-weight: 100;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				font-size: 1.4em;
+				margin-bottom: 0.3em;
+			}
+
+			.mainline-group p.blurb {
+				margin-bottom: 1em;
+				font-size: 0.95em;
+			}
+
+			/* Video in grid */
+			.gallery-item video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				cursor: zoom-in;
+			}
+
+			/* ===== INTERACTIVE ENHANCEMENTS ===== */
+
+			/* Nav link hover - fuchsia accent */
+			#nav ul li a {
+				transition: color 0.3s ease;
+			}
+
+			#nav ul li a:hover {
+				color: rgb(255, 20, 147) !important;
+			}
+
+			/* Social icon hover */
+			#header footer .icons li a {
+				transition: color 0.3s ease;
+			}
+
+			#header footer .icons li a:hover {
+				color: rgb(255, 20, 147) !important;
+			}
 		</style>
-		
+
 	</head>
 	<body class="is-preload">
 
@@ -67,8 +221,8 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="#one" class="active">PREFACE</a></li>
-						<li><a href="#two">RAIL EARBUDS</a></li>
-						<li><a href="#three">PARAMETER BOOT</a></li>
+						<li><a href="#two">SKDY AVIATOR</a></li>
+						<li><a href="#three">SKDY MAINLINE</a></li>
 						<li><a href="#four">SKDY GAMING</a></li>
 						<li><a href="#five">RONIN BIKE</a></li>
 						<li><a href="#six">RINGS</a></li>
@@ -81,12 +235,11 @@
 					<ul class="icons">
 						<li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jacob-malaska-73ab83bb/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 						<li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jacobmalaska/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a target="_blank" rel="noopener noreferrer" href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						<li><a target="_blank" rel="noopener noreferrer" href="mailto:redmalaska@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 				</footer>
 			</section>
-			
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -98,34 +251,30 @@
 							<section id="one">
 								<!--<div class="image main" data-position="center">
 								</div>-->
-								<div class="container">
-
-									<video width="100%" height="auto" autoplay loop muted>
-										<source src="images/banner_video_1.mp4" type="video/mp4">
-										<source src="movie.ogg" type="video/ogg">
-									  Your browser does not support the video tag.
-									  </video>
-								</div>
+								<video width="100%" height="auto" autoplay loop muted style="display:block;">
+									<source src="images/banner_video_1.mp4" type="video/mp4">
+								  Your browser does not support the video tag.
+								  </video>
 								<div class="container">
 									<header class="major">
 										<h2 style="text-align:left;float:left;">PREFACE &nbsp;</h2> <h1 style="text-align:left;float:left;">INDUSTRIAL DESIGN PORTFOLIO</h1>
 									</header>
 									<div class="row" style="clear:both">
 										<div class="col-5 col-12-xsmall">
-											<h4>Jacob Malaska is a versatile Industrial Designer with a strong focus on hard skills, strategic research and formulating the creative process. He is currently based in Salt Lake City, Utah. Jacob's Work consists of
-												many projects spanning consumer electronics, soft goods, and jewelry, among other things. 
+											<h4>Hi, I'm versatile Industrial Designer with a strong focus on hard skills, strategic research and formulating the creative process. I live near Salt Lake City, Utah and my work consists of
+												many projects spanning consumer electronics, soft goods, and jewelry, among other things.
 											</h4>
-											<p>There are an infinite number of ways to wield the creative spark in one's life; music, painting, literature - But surely creating the implements that we use in our daily lifes strikes at the core what human experience is all about.
-												Our environment and the tools we wield shape us. Design changes behaviour, and for better or for worse, our philosophy. I'm dedicated to the discovery of things that are honest, usefull & beautiful. 
+											<p>There are an infinite number of ways to wield the creative spark in one's life; music, painting, literature - But creating the implements that we use in our daily life strikes at the core what the human experience is all about for me.
+												Our environment and the tools we wield shape us. Design changes behavior, and for better or for worse, our philosophy. I'm dedicated to the discovery of things that are honest, useful & beautiful.
 											<br /><br />
 												This web portfolio presents projects in a primarily visual way. Feel free to inquire If you have questions about the work you see.
-												If you would like to reach out regarding design services or consultation on a project or retainer basis, navigate to <a target="_blank" rel="noopener noreferrer" href=""> Item Shop,</a> 
-												where you can find a menu of services and other information.
+												If you would like to reach out regarding design services or consultation on a project or retainer basis, navigate to <a target="_blank" rel="https://www.itemshopdesign.com" href=""> Item Shop,</a>
+												where you can find a menu of services and other information, or click on one of the links in the sidebar.
 											</p>
-											<p>&copy; Jacob Malaska >>> Last updated: 05.12.2023</p>
+											<p>&copy; Jacob Malaska >>> Last updated: 02.02.2026</p>
 										</div>
 										<div class="col-1 col-12-xsmall"></div>
-										<div class="col-3 col-12-xsmall">
+										<div class="col-4 col-12-xsmall">
 											<h4>EXPERTISE</h4>
 											<ul>
 												<li>Research for Innovation</li>
@@ -135,14 +284,13 @@
 												<li>3D Vizualization</li>
 												<li>Design For Manufacture</li>
 											</ul>
-											</div>
-										<div class="col-3 col-12-xsmall">
 											<h4>EXPERIENCE</h4>
 											<ul>
 												<li>ID BFA - Brigham Young University</li>
 												<li>Industrial Designer - Ooblec</li>
 												<li>Design Intern - Skullcandy</li>
-												<li>Industrial Designer - Skullcandy</li>
+												<li>Senior Industrial Designer - Skullcandy</li>
+												<li>Founder - Item Shop</li>
 												<li>ID Consultation - <a target="_blank" rel="noopener noreferrer" href="https://www.shyftglobal.com/"> Shyft Global,</a> <a target="_blank" rel="noopener noreferrer" href="https://chums.com/">Chums</a> & <a target="_blank" rel="noopener noreferrer" href="https://kizik.com/">Kizik.</a></li>
 											</ul>
 										</div>
@@ -150,22 +298,21 @@
 								</div>
 							</section>
 
-						<!-- Two -->
+						<!-- Two: SKDY AVIATOR (repurposed from Rail ANC) -->
 							<section id="two">
 								<div class="container">
 									<header class="major">
-										<h2 style="text-align:left;float:left;">RAIL ANC &nbsp;</h2> <h1 style="text-align:left;float:left;">IOT FLAGSHIP EARBUDS</h1>
+										<h2 style="text-align:left;float:left;">SKDY AVIATOR &nbsp;</h2> <h1 style="text-align:left;float:left;">VINTAGE REBORN</h1>
 									</header>
 									<div class="row" style="clear:both">
 										<div class="col-7 col-12-xsmall">
 											<h4>ABSTRACT</h4>
-											<p>Rail is Skullcandy's flagship earbud, and manifested the evolution of technical expertise within the company. 
-											Being capable of noise canceling, first class firmware and app control and full voice control, Rail wasn't just our headliner, it was the company's first smart product.
-											My efforts began with form exploration, but quickly gave way to rigourous fit studies. I introduced a system of integrating dozens of ear scans into early and late 3D modeling, making our design process much more data oriented.
-											As the project continued, transparency and atypical use of light became key aesthetic details to drive the story of intelligence. In-ear, the bud has a low profile, clean appearance - while handling the buds and interacting with the case allows for 
-											visual exploration and delight with the products many multi-dimensional surfaces. 
+											<p>The original Aviator headphones merged vintage Americana with high fashion when they launched in 2010, becoming a statement piece as much as a listening device.
+											Now the Aviator returns, redesigned for a generation that values personal expression, quality craftsmanship, and the rediscovery of past aesthetics.
+											I realized that the lens of what gen z consider to be vintage had shifted a lot. iPods and digital cameras are now antiques. I wanted to rebuild Aviator into something that felt fauxstalgic to a younger demographic, hopefully allowing them to hold something that felt like what they imagined Y2K to be like.
+											High-contrast materials, nods to eyewear construction, and a tactile interface give the product a sense of durability and intention that resonates with consumers seeking investment pieces over disposable electronics.
 											</p>
-											<p>Circa 10.10.2022<br />
+											<p>Circa 2024<br />
 											<a target="_blank" rel="noopener noreferrer" href=https://www.skullcandy.com>  Skullcandy </a></p>
 										</div>
 										<div class="col-1 col-12-xsmall"></div>
@@ -173,100 +320,185 @@
 											<h4>SCOPE OF WORK</h4>
 											<ul>
 												<li>Lead Industrial Design</li>
-												<li>Internal Videography</li>
-												<li>Fit and Acoustic Validation</li>
+												<li>Consumer Research & Strategy</li>
+												<li>CMF Development</li>
+												<li>Acoustic Tuning</li>
 											</ul>
 											<h4>CONTRIBUTORS</h4>
 											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>    Kyle Arnett </a>
+											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/sam-lepley-91939375>    Sam Lepley </a>
+											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/brett-huras-pmp-lssgb-94963439>    Brett Huras </a>
 											</p>
 										</div>
 
 										<section>
 											<hr />
-											<span class="image fit"><img src="images/Rail Sketch Board.jpg" alt="" /></span>
-											<span class="image fit"><img src="images/Rail Sketch.jpg" Sketch.jpg alt="" /></span>
+											<video width="100%" height="auto" autoplay loop muted>
+												<source src="images/aviator vid.mp4" type="video/mp4">
+											  Your browser does not support the video tag.
+											  </video>
+											<span class="image fit"><img src="images/aviator spread.png" alt="" onclick="toggleExpanded(this)" /></span>
+											<div class="mainline-group">
+												<h3>Fauxstalgia & Vintage Value</h3>
+												<p>Unfortunately, old stuff tends to beat out modern competition when it comes to materials, UI interfaces, and analog experiences (everything lol). I knew that if we just gave the hero feature of the product, ANC, a dedicated physical control, it would improve perception and foster playful engagement with the product a buttload. My memories of Y2K are some of my foggiest, but I tried to dig deep for inspiration to pin down the aesthetic and touchpoint details, and landed on IBM computers, vaporwave, and cyberpunk as fertile ground to plant ideas.
+												</p>
+											</div>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/Aviator_2.jpg" alt="Aviator angle" /></div>
+													<div class="carousel-slide"><img src="images/Aviator_2 3.jpg" alt="Aviator detail" /></div>
+													<div class="carousel-slide"><img src="images/Aviator_2_Alt.jpg" alt="Aviator alt" /></div>
+													<div class="carousel-slide"><img src="images/Aviator_2_Alt 3.jpg" alt="Aviator alt detail" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/aviator hero 2.jpg" alt="Aviator hero" /></div>
+													<div class="carousel-slide"><img src="images/aviator photos (1).webp" alt="Aviator photos 1" /></div>
+													<div class="carousel-slide"><img src="images/aviator photos (2).webp" alt="Aviator photos 2" /></div>
+													<div class="carousel-slide"><img src="images/aviator photos (3).webp" alt="Aviator photos 3" /></div>
+													<div class="carousel-slide"><img src="images/Aviator900ANC_Black_1.webp" alt="Aviator 900 ANC Black" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+											<div class="mainline-group">
+												<h3>Tech as Accessory</h3>
+												<p>The experience of a product extends beyond the moment it's on your head. How it looks around your neck, how it feels in your bag, whether the case is something you want to keep or chuck in a drawer - these details matter. Aviator treats every touchpoint as an opportunity for expression. The case becomes part of the kit, not packaging to discard.
+												</p>
+												<p>Tech is fashion now. Headphones sit alongside sunglasses and watches as objects that say something about the wearer before a word is spoken. But alas, no one thought to make the carry case that comes with your headphone into a wearable. This bag was a big part of the story, with detachable straps that can turn it into a fanny pack or cross-body bag, it becomes a utility purse that fits in your life, and can carry all your vape pens and chapstick. The point is, since making this bag, ecosystem design has become a key pillar for us at Skullcandy, and wear-ability is a big factor in the day to day systems we all create.
+												</p>
+											</div>
 											<div class="box alt">
 												<div class="row gtr-50 gtr-uniform">
-													<div class="col-4 gallery-item"><span class="image fit"><img src="images/Ear fits.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-													<div class="col-4 gallery-item"><span class="image fit"><img src="images/Rail Prints.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-													<div class="col-4 gallery-item"><span class="image fit"><img src="images/Rail Fits.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/Aviator_5.webp" alt="Aviator detail" onclick="toggleExpanded(this)"></span></div>
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/crossbody_2.webp" alt="Crossbody 2" onclick="toggleExpanded(this)"></span></div>
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/crossbody_4.webp" alt="Crossbody 4" onclick="toggleExpanded(this)"></span></div>
 												</div>
 											</div>
-											
-										
-											<span class="image fit"><img src="images/rail 2.jpg" alt="" /></span> 
-											<span class="image fit"><img src="images/Rail Case.jpg" alt="" /></span>
-											<span class="image fit"><img src="images/Rail Hero.jpg" alt="" /></span> 
-											<video width="100%" height="auto" autoplay loop muted>
-												<source src="images/Rail_ANC_1.mp4" type="video/mp4">
-												<source src="movie.ogg" type="video/ogg">
-											  Your browser does not support the video tag.
-											  </video>	
 										</section>
 									</div>
 								</div>
 							</section>
 
-						<!-- Three -->
+						<!-- Three: SKDY MAINLINE -->
 						<section id="three">
 							<div class="container">
 								<header class="major">
-									<h2 style="text-align:left;float:left;">PARAMETER BOOT &nbsp;</h2> <h1 style="text-align:left;float:left;">DATA MEETS STYLE</h1>
+									<h2 style="text-align:left;float:left;">SKDY MAINLINE &nbsp;</h2> <h1 style="text-align:left;float:left;">THE CORE LINEUP</h1>
 								</header>
 								<div class="row" style="clear:both">
 									<div class="col-7 col-12-xsmall">
 										<h4>ABSTRACT</h4>
-										<p>/// ONGOING ///<br />
-											As a way to engage with new tool sets and modeling methods, I decided to design a shoe that incorporated things like AI and more advanced parametric modeling methods. 
-											The various material breaks you find on a shoe would be a great testing ground for experimentation. tread, knits, and laces are examples of things that would be difficult to medel in fine detail with conventional CAD pipelines.
-											CAT shoes were not an official sponsor, but the essentially practical nature of the brand felt like a interesting springboard for exploration and new interpretations of workwear in the near future. 
-										<p>Circa 05.29.2023<br />
-											Personal</p>
-										</div>
-										<div class="col-1 col-12-xsmall"></div>
-										<div class="col-4 col-12-xsmall">
+										<p>The Mainline collection here is a sampler of some products I have designed at Skullcandy over the last few years. Each product in this section was designed to deliver on the brand's promise of bold sound and bold style at accessible price points.
+										From flagship earbuds to over-ear staples, Mainline products share a common design language while still being flamboyant in their own way. Earbuds, Headphones, and Charging Cases are all mechanically and anthropometrically challenging things, in totally different ways. I'm happy with what we were able to pull off considering our super tiny teams and timelines.
+										</p>
+										<p><a target="_blank" rel="noopener noreferrer" href=https://www.skullcandy.com>  Skullcandy </a></p>
+									</div>
+									<div class="col-1 col-12-xsmall"></div>
+									<div class="col-4 col-12-xsmall">
 										<h4>SCOPE OF WORK</h4>
 										<ul>
-											<li>Sketching</li>
-											<li>AI Assisted Ideation</li>
-											<li>AI Assisted Rendering</li>
-											<li>Parametric Modeling</li>
+											<li>Industrial Design</li>
+											<li>Fit and Acoustic Validation</li>
+											<li>Acoustic Tuning</li>
+											<li>3D Visualization</li>
+											<li>DFM Revisions</li>
 										</ul>
-										<!-- <h4>CONTRIBUTORS</h4>
-										<p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ryan-jung-a1934635/">Ryan Jung</a><br />
-										<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/randy-hull-436a6113/">Randy Hull</a>
-										</p> -->
-										
+										<h4>CONTRIBUTORS</h4>
+										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>Kyle Arnett</a>
+										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/polluxpolaris>Pollux Polaris</a>
+										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/andrew-philp-420177178>Andrew Philp</a>
+										</p>
 									</div>
+
 									<section>
 										<hr />
-										<video width="100%" height="auto" autoplay loop muted>
-											<source src="images/Parameter Boot 30s.mp4" type="video/mp4">
-											<source src="movie.ogg" type="video/ogg">
-										  Your browser does not support the video tag.
-										  </video>	
-										  <div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00010-2538153627.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00018-2282176770.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00032-2499826723.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00035-2499826726.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00044-3721465652.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00047-3721465655.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00051-65123726.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00072-2772240837.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/00079-2204532829.png" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
 
+										<!-- Rail ANC Group -->
+										<div class="mainline-group">
+											<h3>Rail ANC</h3>
+											<p class="blurb">Skullcandy's flagship true wireless earbud. Noise canceling, full voice control, and a design driven by transparency and light - Rail was the company's first smart product, and I wanted to emphasize that by letting our users see the tech through the backside of the bud, while keeping the front casual.</p>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/Rail Hero.jpg" alt="Rail ANC Hero" /></div>
+													<div class="carousel-slide"><img src="images/Rail Sketch Board.jpg" alt="Rail Sketch Board" /></div>
+													<div class="carousel-slide"><img src="images/Rail Sketch.jpg" alt="Rail Sketch" /></div>
+													<div class="carousel-slide"><img src="images/rail 2.jpg" alt="Rail ANC detail" /></div>
+													<div class="carousel-slide"><img src="images/Rail Case.jpg" alt="Rail ANC Case" /></div>
+													<div class="carousel-slide"><img src="images/Rail Prints.jpg" alt="Rail Prints" /></div>
+													<div class="carousel-slide"><img src="images/Rail Fits.jpg" alt="Rail Fits" /></div>
+													<div class="carousel-slide"><img src="images/Ear fits.jpg" alt="Ear Fits" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
 											</div>
 										</div>
-										<span class="image fit"><img src="images/railanc 2.png" alt="" /></span> 	
+
+										<!-- Hesh Group -->
+										<div class="mainline-group">
+											<h3>Hesh</h3>
+											<p class="blurb">A long-standing pillar of the Skullcandy over-ear range. Hesh delivers full, immersive sound in a form that has evolved across multiple generations of design. I'm particularly happy with the sliders, which when moved, slide open to reveal more comfy fabric and head room. It solves for a common problem that headphones have, looking good in renders, but being disjointed and broken looking when articulated.</p>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/hesh (1).webp" alt="Hesh 1" /></div>
+													<div class="carousel-slide"><img src="images/hesh (2).webp" alt="Hesh 2" /></div>
+													<div class="carousel-slide"><img src="images/hesh (3).webp" alt="Hesh 3" /></div>
+													<div class="carousel-slide"><img src="images/hesh (4).webp" alt="Hesh 4" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+
+										<!-- Icon 180 Group -->
+										<div class="mainline-group">
+											<h3>Icon 180</h3>
+											<p class="blurb">A budget over-ear headphone balancing refined aesthetics with serious value engineering. This product approaches the theoretical limit for part count of a headphone. Showing the guts is kind of a pillar for us lately, but this headphone allows you to see the front and back of its tool injected parts. No covers, just very curated ribbing. IYKYK.</p>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/HI50.70.png" alt="Hi50 render 3" /></div>
+													<div class="carousel-slide"><img src="images/Hi50.png" alt="Hi50 hero" /></div>
+													<div class="carousel-slide"><img src="images/HI50.64.png" alt="Hi50 render 1" /></div>
+													<div class="carousel-slide"><img src="images/HI50.67.png" alt="Hi50 render 2" /></div>
+													<div class="carousel-slide"><img src="images/hi 50 bone.webp" alt="Hi50 bone" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+
+										<!-- Sesh ANC Active Group -->
+										<div class="mainline-group">
+											<h3>Sesh ANC Active</h3>
+											<p class="blurb">A sporty bud with a buff and fast shape, Sesh was where we were able to create a really comfy secure fit for an unusually large set of drivers and batteries. Some rubberized parts and cordage loops gave it the ability to hold on to you in active scenarios.</p>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/Tanc Keyshooter.204.png" alt="TANC Keyshooter 2" /></div>
+													<div class="carousel-slide"><img src="images/tanc.png" alt="TANC" /></div>
+													<div class="carousel-slide"><img src="images/tanc green.png" alt="TANC green" /></div>
+													<div class="carousel-slide"><img src="images/Tanc Keyshooter.163.png" alt="TANC Keyshooter 1" /></div>
+													<div class="carousel-slide"><img src="images/Tanc Keyshooter.209.png" alt="TANC Keyshooter 3" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+
 									</section>
 								</div>
 							</div>
 						</section>
 
-						<!-- Four -->
+						<!-- Four: SKDY GAMING -->
 							<section id="four">
 								<div class="container">
 									<header class="major">
@@ -275,7 +507,7 @@
 									<div class="row" style="clear:both">
 										<div class="col-7 col-12-xsmall">
 											<h4>ABSTRACT</h4>
-											<p>The gaming lineup was to consist of three sibling products, but we knew from the get go that all three headphones had to have uncompromisingly great comfort, audio quality and comms. We were deterred by the RGB ridden alien spaceship inspired headphones
+											<p>The gaming lineup was to consist of three sibling products and big daddy crusher headphone. We knew from the get go that all four headphones had to have uncompromisingly great comfort, audio quality and comms. We were deterred by the RGB ridden alien spaceship inspired headphones
 												flooding the market, and instead looked back at retro gaming console hardware for inspiration (the Playstation and Nintendo consoles of the 90's were classicly modern and timeless designs). Gaming presented a lot of firsts for our small Design Team. Boom
 												microphones, suspension headbands and an alternate camber-yolk architecture were all things we knew we wanted, but had to build and test mid development before we were satisfied. The resulting design was a suite of products that could be spun in either a futuristic
 												or nostalgic CMF easily. The whole family boasted extra large 50mm drivers and exceptional comfort and the same quality boom mic. The entire left ear cup can be 'bopped' for easy mute functionality, and the higher priced point products sported more customization and connectivity options.
@@ -293,22 +525,74 @@
 											<h4>CONTRIBUTORS</h4>
 											<p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/j-mike-jacobs/">Mike Jacobs</a><br />
 											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/garretthazen/">Garrett Hazen</a><br />
-											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/kyle-macdonald-56860049/">Kyle MacDonald</a><br />
-											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/eranvautour/">Eran Vautour</a>
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mike-quigley-5b0b7795/">Mike Quigley</a>
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/randy-hull-436a6113/">Randy Hull</a>
 											</p>
-											
+
 										</div>
 										<section>
 											<hr />
-											<span class="image fit"><img src="images/Gaming VBL.jpg" alt="" /></span>
-											<span class="image fit"><img src="images/Gaming Early Lineup.jpg" alt="" /></span> 
-											<span class="image fit"><img src="images/Gaming Hero 1.jpg" alt="" /></span> 	
-											<video width="100%" height="auto" autoplay muted>
-												<source src="images/banner_video_1.mp4#t=25,39" type="video/mp4">
-												<source src="movie.ogg" type="video/ogg">
+											<!-- Crusher Gaming -->
+											<video width="100%" height="auto" autoplay loop muted>
+												<source src="images/crusher gaming vid.mp4" type="video/mp4">
 											  Your browser does not support the video tag.
 											  </video>
-											<span class="image fit"><img src="images/TQ-wmmMg.jpg" alt="" /></span> 
+											<div class="mainline-group">
+												<h3>Crusher Gaming</h3>
+												<p>This headphone honestly still blows me away to think about. It's the first of its kind, fully open backed headphone, but with Skullcandy's Crusher drivers to compensate for the lack of bass that defines open backs. It's honestly the best headphone ever made, for audiophiles and gamers alike. We wanted to show off Crusher, and the best way was to lean into a giant adjustment wheel and perforated venting, giving a subtle peak to the headphone's inner workings and massive bass coils.
+												</p>
+											</div>
+											<div class="box alt">
+												<div class="row gtr-50 gtr-uniform">
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/SG200 Crusher P2.2_Page_10.jpg" alt="Crusher spec 1" onclick="toggleExpanded(this)"></span></div>
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/SG200 Crusher P2.2_Page_11.jpg" alt="Crusher spec 2" onclick="toggleExpanded(this)"></span></div>
+													<div class="col-4 gallery-item"><span class="image fit"><img src="images/SG200 Crusher P2.2_Page_12.jpg" alt="Crusher spec 3" onclick="toggleExpanded(this)"></span></div>
+												</div>
+											</div>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/Crusher_Gaming 1.jpg" alt="Crusher Gaming 1" /></div>
+													<div class="carousel-slide"><img src="images/Crusher_Gaming 3.jpg" alt="Crusher Gaming 3" /></div>
+													<div class="carousel-slide"><img src="images/Crusher_Gaming 13.png" alt="Crusher Gaming 13" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/crusher gamin 1.webp" alt="Crusher Gaming render 1" /></div>
+													<div class="carousel-slide"><img src="images/crusher gamin 2.webp" alt="Crusher Gaming render 2" /></div>
+													<div class="carousel-slide"><img src="images/crusher gamin 3.webp" alt="Crusher Gaming render 3" /></div>
+													<div class="carousel-slide"><img src="images/crusher gamin 4.webp" alt="Crusher Gaming render 4" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+											<hr />
+											<!-- Original Gaming Lineup -->
+											<div class="mainline-group">
+												<h3>Baseline Gaming Lineup</h3>
+												<p>The foundation of Skullcandy's gaming range - three sibling products built around exceptional comfort, 50mm drivers, and a shared boom mic architecture. Inspired by the clean lines of 90's console hardware rather than the RGB-laden aesthetic dominating the market.
+												</p>
+											</div>
+											<span class="image fit"><img src="images/Gaming Pyramid.png" alt="" onclick="toggleExpanded(this)" /></span>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/Gaming VBL.jpg" alt="Gaming VBL" /></div>
+													<div class="carousel-slide"><img src="images/Gaming Early Lineup.jpg" alt="Gaming Early Lineup" /></div>
+													<div class="carousel-slide"><img src="images/Gaming Hero 1.jpg" alt="Gaming Hero" /></div>
+													<div class="carousel-slide"><img src="images/TQ-wmmMg.jpg" alt="Gaming detail" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+											<video width="100%" height="auto" autoplay loop muted>
+												<source src="images/banner_video_1.mp4#t=25,39" type="video/mp4">
+											  Your browser does not support the video tag.
+											  </video>
 										</section>
 									</div>
 								</div>
@@ -324,7 +608,7 @@
 								<div class="row" style="clear:both">
 									<div class="col-7 col-12-xsmall">
 										<h4>ABSTRACT</h4>
-										<p>Having spent two years in Japan, I became very well aquainted with the Mamachari - The category of cheap, abundant basic bicycles used by grandmothers and business men alike. The bikes themselves were utilitarian, maybe a bit heavy, but 
+										<p>Having spent two years in Japan, I became very well aquainted with the Mamachari - The category of cheap, abundant basic bicycles used by grandmothers and business men alike. The bikes themselves were utilitarian, maybe a bit heavy, but
 											comfortable and affordable. Unfortunately these bikes have a short life expectancy in the hot humid country, and their over production and cheap perception fueled a negative cycle of abuse and misuse. After see so many poor rusty bikes chained to railings for
 											eternity, I wanted to design the antithesis. A Bicycle designed for commuting that would withstand abuse. "Ronin" features an in frame battery, rear mounted motor, tubeless tires, and a sealed drive shaft instead of a chain. Safety features and everything else you would want are all tightly integrated into the
 											sillhouette of a road bike.
@@ -338,23 +622,26 @@
 										<ul>
 											<li>Sketching</li>
 											<li>Modeled in Blender</li>
-										
+
 										</ul>
-										
-										
+
+
 									</div>
 									<section>
 										<hr />
 										<video width="100%" height="auto" autoplay loop muted>
-											<source src="images/bike 3.mp4" type="video/mp4">
-											<source src="movie.ogg" type="video/ogg">
+											<source src="images/0001.mp4" type="video/mp4">
 										  Your browser does not support the video tag.
-										  </video>	
-										  
-										<span class="image fit"><img src="images/Bike 1.jpg" alt="" /></span>
-										<span class="image fit"><img src="images/Bike 2.jpg" alt="" /></span> 
-										<span class="image fit"><img src="images/Bike 3.jpg" alt="" /></span> 	
-										<span class="image fit"><img src="images/Bike 4.jpg" alt="" /></span> 	
+										  </video>
+										<video width="100%" height="auto" autoplay loop muted>
+											<source src="images/bike 3.mp4" type="video/mp4">
+										  Your browser does not support the video tag.
+										  </video>
+
+										<span class="image fit"><img src="images/Bike 1.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/Bike 2.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/Bike 3.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/Bike 4.jpg" alt="" onclick="toggleExpanded(this)" /></span>
 									</section>
 								</div>
 							</div>
@@ -370,8 +657,8 @@
 									<div class="col-7 col-12-xsmall">
 										<h4>ABSTRACT</h4>
 										<p>In collaboration with Shyft Global and their client Tristen Ikaika, I was able to build a catalouge of ring designs with a wide variety of motiffs for the Ikaika brand. The designs we wanted to achieve were outside of the scope for software like solidworks or AutoCAD.
-											Having made my wife's engagement ring, I understood some of the constraints surrounding casting precious metals. Blender's open-source sculpture interface was a powerful tool to take the gestural shapes and fine details we wanted all the way to prodcution and sale. The 
-											first rings were floral rose designs, moving on to animals and other abstractions, finally ending on several figurative subjects where sculpting things like hands, faces and arms in relief around a circular band proved to be a fun artistic challenge. 
+											Having made my wife's engagement ring, I understood some of the constraints surrounding casting precious metals. Blender's open-source sculpture interface was a powerful tool to take the gestural shapes and fine details we wanted all the way to prodcution and sale. The
+											first rings were floral rose designs, moving on to animals and other abstractions, finally ending on several figurative subjects where sculpting things like hands, faces and arms in relief around a circular band proved to be a fun artistic challenge.
 
 										</p>
 										<p>Circa 11.01.2020<br />
@@ -381,26 +668,25 @@
 										<div class="col-4 col-12-xsmall">
 										<h4>SCOPE OF WORK</h4>
 										<ul>
-											<li>Dolor pulvinar etiam magna etiam.</li>
-											<li>Sagittis adipiscing lorem eleifend.</li>
-											<li>Felis enim feugiat dolore viverra.</li>
+											<li>Digital Sculpture in Blender</li>
+											<li>Design for Casting</li>
+											<li>Production Coordination</li>
 										</ul>
 										<h4>CONTRIBUTORS</h4>
 										<p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ryan-jung-a1934635/">Ryan Jung</a><br />
 										<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/colehpeck/">Cole Peck</a>
 										</p>
-										
+
 									</div>
 									<section>
 										<hr />
-										<span class="image fit"><img src="images/Rose Gold Top.jpg" alt="" /></span> 	
-										<span class="image fit"><img src="images/Heart Hands 3.1.jpg" alt="" /></span> 
-										<span class="image fit"><img src="images/0163.jpg" alt="" /></span> 
-										<span class="image fit"><img src="images/shark 2.0.jpg" alt="" /></span> 
-										<span class="image fit"><img src="images/Cry Ring draft 4.jpg" alt="" /></span> 
+										<span class="image fit"><img src="images/Rose Gold Top.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/Heart Hands 3.1.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/0163.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/shark 2.0.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/Cry Ring draft 4.jpg" alt="" onclick="toggleExpanded(this)" /></span>
 										<video width="100%" height="auto" autoplay muted>
 											<source src="images/banner_video_1.mp4#t=40,53" type="video/mp4">
-											<source src="movie.ogg" type="video/ogg">
 										  Your browser does not support the video tag.
 										  </video>
 									</section>
@@ -421,12 +707,12 @@
 											1. Design common objects in a way that allows them to work together as a cohesive whole while eliminating redundancy and clutter in the home.<br />
 											2. Give a commentary on the Global epidemic of overconsumption as well as a compelling and finite alternative.<br />
 											3. Gain a more comprehensive perspective and skill set as an Industrial Designer - Even regarding the "mundane" items that we all possess.
-											
+
 										<p>2017 -2018<br />
 											Senior Thesis<br />
 										<br />
 										<a target="_blank" rel="noopener noreferrer" href="https://www.behance.net/gallery/79620625/100-The-last-things-you-will-ever-buy">Link to full project on Behance</a> </p>
-										
+
 										</div>
 										<div class="col-1 col-12-xsmall"></div>
 										<div class="col-4 col-12-xsmall">
@@ -438,38 +724,38 @@
 											<li>Furniture Making</li>
 											<li>Final Booklet and Renders</li>
 										</ul>
-										
-										
+
+
 									</div>
 									<section>
 										<hr />
 										<p>A Multitool & Knife</p>
-										<span class="image fit"><img src="images/100 Multitool2.jpg" alt="" /></span>
-										<span class="image fit"><img src="images/100 Multitool3.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Multitool2.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/100 Multitool3.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Flexible Jumpsuit </p>
-										<span class="image fit"><img src="images/100 Jumper.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Jumper.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Modular Razor </p>
-										<span class="image fit"><img src="images/100 Shaver.jpg" alt="" /></span>
-										<span class="image fit"><img src="images/100 shaver 13.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Shaver.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/100 shaver 13.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>An Arc Lighter </p>
-										<span class="image fit"><img src="images/100 Lighter.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Lighter.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A 2MM Graphite Pencil </p>
-										<span class="image fit"><img src="images/100 Pencil.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Pencil.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Compass, Ruler, Level and Straight Edge </p>
-										<span class="image fit"><img src="images/100 Compass.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 Compass.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Compatible Cup, Bottle And Pitcher, on a Blender</p>
-										<span class="image fit"><img src="images/100 blender group.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 blender group.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Modular Furniture System </p>
-										<span class="image fit"><img src="images/100 furtr.jpg" alt="" /></span>
-										<span class="image fit"><img src="images/100 furniture spread.jpg" alt="" /></span><br />
+										<span class="image fit"><img src="images/100 furtr.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<span class="image fit"><img src="images/100 furniture spread.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
 										<p>A Durable Fastener</p>
-										<span class="image fit"><img src="images/100 Fastener.jpg" alt="" /></span>
+										<span class="image fit"><img src="images/100 Fastener.jpg" alt="" onclick="toggleExpanded(this)" /></span>
 									</section>
 								</div>
 							</div>
-						</section>	
-						
-						
+						</section>
+
+
 						<!-- eight -->
 						<section id="eight">
 							<div class="container">
@@ -477,49 +763,39 @@
 									<h2 style="text-align:left;float:left;">ARCHIVE &nbsp;</h2> <h1 style="text-align:left;float:left;">SKILLS SHOWCASE</h1>
 								</header>
 								<div class="row" style="clear:both">
-									
+
 									<section>
 										<hr />
-									
+
 										<div class="box alt">
 											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set3.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set2.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 1.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 2.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 3.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair Black.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair clear.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair Pink.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 5.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 6.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 7.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 1.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 2.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
-												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 3.jpg" alt="Image 1" onclick="toggleExpanded(this)"></span></div>
+												<!-- Featured projects -->
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/robit 1.png" alt="Robit" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/baiku 1.png" alt="Baiku" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Mechtech 1.png" alt="Mechtech 1" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Mechtech 3.png" alt="Mechtech 3" onclick="toggleExpanded(this)"></span></div>
+												<!-- Videos in grid -->
+												<div class="col-4 gallery-item"><video autoplay loop muted playsinline onclick="toggleExpandedVideo(this)"><source src="images/Visiting LA.mp4" type="video/mp4"></video></div>
+												<div class="col-4 gallery-item"><video autoplay loop muted playsinline onclick="toggleExpandedVideo(this)"><source src="images/Parameter Boot 30s.mp4" type="video/mp4"></video></div>
+												<!-- Other projects -->
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set3.jpg" alt="Kobuto 1" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set.jpg" alt="Kobuto 2" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Kobuto set2.jpg" alt="Kobuto 3" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 1.jpg" alt="Chair 1" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 2.jpg" alt="Chair 2" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair 3.jpg" alt="Chair 3" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair Black.jpg" alt="Chair Black" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair clear.jpg" alt="Chair clear" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/Chair Pink.jpg" alt="Chair Pink" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 5.jpg" alt="Cologne 1" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 6.jpg" alt="Cologne 2" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/cologne 7.jpg" alt="Cologne 3" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 1.jpg" alt="Car 1" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 2.jpg" alt="Car 2" onclick="toggleExpanded(this)"></span></div>
+												<div class="col-4 gallery-item"><span class="image fit"><img src="images/car 3.jpg" alt="Car 3" onclick="toggleExpanded(this)"></span></div>
 											</div>
 										</div>
-										
-										<div class="expanded-image" onclick="toggleExpanded(null)">
-											<img id="expanded-img" src="">
-										</div>
-									
-										<script>
-											function toggleExpanded(img) {
-												var expandedImg = document.getElementById("expanded-img");
-												var expandedContainer = document.getElementsByClassName("expanded-image")[0];
-									
-												if (img) {
-													expandedImg.src = img.src;
-													expandedContainer.classList.add("expanded");
-													expandedContainer.style.display = "flex";
-												} else {
-													expandedContainer.classList.remove("expanded");
-													expandedContainer.style.display = "none";
-												}
-											}
-										</script>
+
 								</div>
 							</div>
 						</section>
@@ -528,357 +804,26 @@
 						<!-- nine -->
 						<section id="nine">
 							<div class="container">
-								
+
 								<div class="row" style="clear:both">
 									<div class="col-7 col-12-xsmall">
 										<h4>ABOUT</h4>
-										<p>I live in Utah Valley with my wife and 2 children. Besides design I like to rollerblade, paint, play Street Fighter and work around the yard.
+										<p>I live in Utah Valley with my wife and 4 children. Besides design I like to rollerblade, paint, play Street Fighter and develope my video game Doom Trail. 
 											Hope you enjoyed the work you saw. Get in touch if you want to see more.
 										</p>
-										<p>>>> Last updated: 05.12.2023</p>
+										<p>>>> Last updated: 02.02.2026</p>
 									</div>
-									
+
 									<div class="col-5 col-12-xsmall">
-										<span class="image fit"><img src="images/avatar.jpg" alt="" /></span>
-										
+										<span class="image fit"><img src="images/JRM-01.png" alt="" onclick="toggleExpanded(this)" /></span>
+
 									</div>
 								</div>
 							</div>
 						</section>
 
-						<!-- Five 
-						
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
+				</div>
 
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						
-
-					</div>
- -->
 				<!-- Footer -->
 					<section id="footer">
 						<div class="container">
@@ -898,6 +843,217 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Carousel Script -->
+			<script>
+				// Initialize all carousels
+				document.addEventListener('DOMContentLoaded', function() {
+					var carousels = document.querySelectorAll('.carousel');
+					carousels.forEach(function(carousel) {
+						var track = carousel.querySelector('.carousel-track');
+						var slides = carousel.querySelectorAll('.carousel-slide');
+						var indicators = carousel.querySelector('.carousel-indicators');
+
+						// Create indicator dots
+						slides.forEach(function(slide, index) {
+							var dot = document.createElement('span');
+							if (index === 0) dot.classList.add('active');
+							dot.addEventListener('click', function() {
+								goToSlide(carousel, index);
+							});
+							indicators.appendChild(dot);
+
+							// Make carousel images expandable
+							var img = slide.querySelector('img');
+							if (img) {
+								img.addEventListener('click', function() {
+									toggleExpanded(this);
+								});
+							}
+						});
+					});
+				});
+
+				function goToSlide(carousel, index) {
+					var track = carousel.querySelector('.carousel-track');
+					var slides = carousel.querySelectorAll('.carousel-slide');
+					var dots = carousel.querySelectorAll('.carousel-indicators span');
+
+					if (index < 0) index = slides.length - 1;
+					if (index >= slides.length) index = 0;
+
+					track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+					dots.forEach(function(dot) { dot.classList.remove('active'); });
+					if (dots[index]) dots[index].classList.add('active');
+
+					carousel.setAttribute('data-current', index);
+				}
+
+				function carouselNext(btn) {
+					var carousel = btn.closest('.carousel');
+					var current = parseInt(carousel.getAttribute('data-current') || '0');
+					goToSlide(carousel, current + 1);
+				}
+
+				function carouselPrev(btn) {
+					var carousel = btn.closest('.carousel');
+					var current = parseInt(carousel.getAttribute('data-current') || '0');
+					goToSlide(carousel, current - 1);
+				}
+
+				// ===== COLOR ROLLOUT EFFECT =====
+				// Resolves one letter at a time, mostly dark greys with occasional red-magenta accent
+				class ColorRollout {
+					constructor(el) {
+						this.el = el;
+						// Weighted colors: more dark greys, accent is now red-magenta (more red than fuchsia)
+						this.colors = ['#141414', '#1a1a1a', '#222222', '#2a2a2a', '#333333', '#3a3a3a', '#444444', '#555555', '#677477', 'rgb(255,20,147)'];
+						this.update = this.update.bind(this);
+					}
+
+					start() {
+						const text = this.el.innerText;
+						this.chars = text.split('');
+						this.frame = 0;
+						// Each character resolves sequentially, one at a time - slower timing
+						const framesPerChar = 5; // frames before next char starts resolving (was 3)
+						this.charStates = this.chars.map((char, index) => ({
+							startFrame: index * framesPerChar,
+							resolveFrame: index * framesPerChar + 25 + Math.floor(Math.random() * 15)
+						}));
+						this.totalFrames = this.charStates[this.chars.length - 1].resolveFrame + 10;
+						this.update();
+					}
+
+					update() {
+						let output = '';
+						let complete = 0;
+
+						for (let i = 0; i < this.chars.length; i++) {
+							const char = this.chars[i];
+							const state = this.charStates[i];
+
+							if (this.frame >= state.resolveFrame) {
+								// Final state - normal color
+								output += char;
+								complete++;
+							} else if (this.frame >= state.startFrame) {
+								// Cycling through colors - weighted toward dark greys
+								const rand = Math.random();
+								let colorIndex;
+								if (rand < 0.85) {
+									// 85% chance of dark grey shades
+									colorIndex = Math.floor(Math.random() * 8);
+								} else {
+									// 15% chance of red-magenta or lighter grey
+									colorIndex = 8 + Math.floor(Math.random() * 2);
+								}
+								output += '<span style="color:' + this.colors[colorIndex] + '">' + char + '</span>';
+							} else {
+								// Not started yet - show in background color (invisible)
+								output += '<span style="color:#141414">' + char + '</span>';
+							}
+						}
+
+						this.el.innerHTML = output;
+
+						if (complete === this.chars.length) {
+							// Reset to plain text
+							this.el.innerText = this.chars.join('');
+							// Call completion callback if provided
+							if (this.onComplete) this.onComplete();
+						} else {
+							this.frameRequest = requestAnimationFrame(this.update);
+							this.frame++;
+						}
+					}
+				}
+
+				// Apply color rollout effect to headers on scroll AND hover
+				document.addEventListener('DOMContentLoaded', function() {
+					const allHeaders = [
+						...document.querySelectorAll('header.major h2'),
+						...document.querySelectorAll('header.major h1'),
+						...document.querySelectorAll('.mainline-group h3')
+					];
+
+					const observed = new Set();
+
+					// Trigger on scroll (first time element comes into view)
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting && !observed.has(entry.target)) {
+								observed.add(entry.target);
+								if (!entry.target.isAnimating) {
+									entry.target.isAnimating = true;
+									const fx = new ColorRollout(entry.target);
+									fx.onComplete = () => { entry.target.isAnimating = false; };
+									fx.start();
+								}
+							}
+						});
+					}, { threshold: 0.5 });
+
+					allHeaders.forEach(header => {
+						// Observe for scroll trigger
+						observer.observe(header);
+
+						// Also trigger on hover (can replay anytime)
+						header.addEventListener('mouseenter', function() {
+							if (!this.isAnimating) {
+								this.isAnimating = true;
+								const fx = new ColorRollout(this);
+								fx.onComplete = () => { this.isAnimating = false; };
+								fx.start();
+							}
+						});
+					});
+				});
+
+			</script>
+
+		<!-- Global Expanded Image Overlay -->
+		<div class="expanded-image" onclick="toggleExpanded(null)">
+			<img id="expanded-img" src="">
+			<video id="expanded-video" autoplay loop muted style="display:none; max-width:90%; max-height:90%;"></video>
+		</div>
+
+		<script>
+			function toggleExpanded(img) {
+				var expandedImg = document.getElementById("expanded-img");
+				var expandedVideo = document.getElementById("expanded-video");
+				var expandedContainer = document.getElementsByClassName("expanded-image")[0];
+
+				if (img) {
+					expandedImg.src = img.src;
+					expandedImg.style.display = "block";
+					expandedVideo.style.display = "none";
+					expandedVideo.pause();
+					expandedContainer.classList.add("expanded");
+					expandedContainer.style.display = "flex";
+				} else {
+					expandedContainer.classList.remove("expanded");
+					expandedContainer.style.display = "none";
+					expandedVideo.pause();
+				}
+			}
+
+			function toggleExpandedVideo(video) {
+				var expandedImg = document.getElementById("expanded-img");
+				var expandedVideo = document.getElementById("expanded-video");
+				var expandedContainer = document.getElementsByClassName("expanded-image")[0];
+
+				if (video) {
+					expandedVideo.src = video.querySelector('source').src;
+					expandedVideo.style.display = "block";
+					expandedImg.style.display = "none";
+					expandedVideo.play();
+					expandedContainer.classList.add("expanded");
+					expandedContainer.style.display = "flex";
+				}
+			}
+		</script>
 
 	</body>
 </html>

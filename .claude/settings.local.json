@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(dir \"C:\\\\Users\\\\redma\\\\Documents\\\\Portfolio Arcane\\\\images\")",
+      "Bash(dir:*)"
+    ]
+  }
+}
