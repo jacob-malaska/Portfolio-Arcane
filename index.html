@@ -79,6 +79,34 @@
 				width: 90%;
 			}
 
+			/* Tablet/medium responsive margins */
+			@media screen and (max-width: 980px) {
+				#main .container {
+					width: 90%;
+					padding-left: 1.5em;
+					padding-right: 1.5em;
+				}
+
+				#main > section {
+					padding-left: 1.5em;
+					padding-right: 1.5em;
+				}
+			}
+
+			/* Mobile responsive margins */
+			@media screen and (max-width: 736px) {
+				#main .container {
+					width: 95%;
+					padding-left: 1.5em;
+					padding-right: 1.5em;
+				}
+
+				#main > section {
+					padding-left: 1.5em;
+					padding-right: 1.5em;
+				}
+			}
+
 			/* Carousel Styles */
 			.carousel {
 				position: relative;
@@ -325,9 +353,11 @@
 												<li>Acoustic Tuning</li>
 											</ul>
 											<h4>CONTRIBUTORS</h4>
-											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>    Kyle Arnett </a>
-											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/sam-lepley-91939375>    Sam Lepley </a>
-											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/brett-huras-pmp-lssgb-94963439>    Brett Huras </a>
+											<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>Kyle Arnett</a><br />
+											<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/sam-lepley-91939375>Sam Lepley</a><br />
+											<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/brett-huras-pmp-lssgb-94963439>Brett Huras</a><br />
+											<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/seth-richardson-312b35102/>Seth Richardson</a><br />
+											<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/matthewwestern/>Matthew Western</a>
 											</p>
 										</div>
 
@@ -410,9 +440,9 @@
 											<li>DFM Revisions</li>
 										</ul>
 										<h4>CONTRIBUTORS</h4>
-										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>Kyle Arnett</a>
-										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/polluxpolaris>Pollux Polaris</a>
-										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/andrew-philp-420177178>Andrew Philp</a>
+										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>Kyle Arnett</a><br />
+										<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/polluxpolaris>Pollux Polaris</a><br />
+										<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/andrew-philp-420177178>Andrew Philp</a>
 										</p>
 									</div>
 
@@ -423,6 +453,10 @@
 										<div class="mainline-group">
 											<h3>Rail ANC</h3>
 											<p class="blurb">Skullcandy's flagship true wireless earbud. Noise canceling, full voice control, and a design driven by transparency and light - Rail was the company's first smart product, and I wanted to emphasize that by letting our users see the tech through the backside of the bud, while keeping the front casual.</p>
+											<video width="100%" height="auto" autoplay loop muted>
+												<source src="images/Rail_ANC_1.mp4" type="video/mp4">
+											  Your browser does not support the video tag.
+											</video>
 											<div class="carousel" data-carousel>
 												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
 												<div class="carousel-track">
@@ -525,8 +559,10 @@
 											<h4>CONTRIBUTORS</h4>
 											<p><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/j-mike-jacobs/">Mike Jacobs</a><br />
 											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/garretthazen/">Garrett Hazen</a><br />
-											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mike-quigley-5b0b7795/">Mike Quigley</a>
-											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/randy-hull-436a6113/">Randy Hull</a>
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mike-quigley-5b0b7795/">Mike Quigley</a><br />
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/randy-hull-436a6113/">Randy Hull</a><br />
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/seth-richardson-312b35102/">Seth Richardson</a><br />
+											<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/matthewwestern/">Matthew Western</a>
 											</p>
 
 										</div>
@@ -729,27 +765,66 @@
 									</div>
 									<section>
 										<hr />
-										<p>A Multitool & Knife</p>
-										<span class="image fit"><img src="images/100 Multitool2.jpg" alt="" onclick="toggleExpanded(this)" /></span>
-										<span class="image fit"><img src="images/100 Multitool3.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Flexible Jumpsuit </p>
-										<span class="image fit"><img src="images/100 Jumper.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Modular Razor </p>
-										<span class="image fit"><img src="images/100 Shaver.jpg" alt="" onclick="toggleExpanded(this)" /></span>
-										<span class="image fit"><img src="images/100 shaver 13.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>An Arc Lighter </p>
-										<span class="image fit"><img src="images/100 Lighter.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A 2MM Graphite Pencil </p>
-										<span class="image fit"><img src="images/100 Pencil.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Compass, Ruler, Level and Straight Edge </p>
-										<span class="image fit"><img src="images/100 Compass.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Compatible Cup, Bottle And Pitcher, on a Blender</p>
-										<span class="image fit"><img src="images/100 blender group.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Modular Furniture System </p>
-										<span class="image fit"><img src="images/100 furtr.jpg" alt="" onclick="toggleExpanded(this)" /></span>
-										<span class="image fit"><img src="images/100 furniture spread.jpg" alt="" onclick="toggleExpanded(this)" /></span><br />
-										<p>A Durable Fastener</p>
-										<span class="image fit"><img src="images/100 Fastener.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										<div class="mainline-group">
+											<h3>A Multitool & Knife</h3>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/100 Multitool2.jpg" alt="Multitool 1" /></div>
+													<div class="carousel-slide"><img src="images/100 Multitool3.jpg" alt="Multitool 2" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+										<div class="mainline-group">
+											<h3>A Flexible Jumpsuit</h3>
+											<span class="image fit"><img src="images/100 Jumper.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
+										<div class="mainline-group">
+											<h3>A Modular Razor</h3>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/100 Shaver.jpg" alt="Shaver 1" /></div>
+													<div class="carousel-slide"><img src="images/100 shaver 13.jpg" alt="Shaver 2" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+										<div class="mainline-group">
+											<h3>An Arc Lighter</h3>
+											<span class="image fit"><img src="images/100 Lighter.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
+										<div class="mainline-group">
+											<h3>A 2MM Graphite Pencil</h3>
+											<span class="image fit"><img src="images/100 Pencil.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
+										<div class="mainline-group">
+											<h3>A Compass, Ruler, Level and Straight Edge</h3>
+											<span class="image fit"><img src="images/100 Compass.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
+										<div class="mainline-group">
+											<h3>A Compatible Cup, Bottle And Pitcher, on a Blender</h3>
+											<span class="image fit"><img src="images/100 blender group.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
+										<div class="mainline-group">
+											<h3>A Modular Furniture System</h3>
+											<div class="carousel" data-carousel>
+												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
+												<div class="carousel-track">
+													<div class="carousel-slide"><img src="images/100 furtr.jpg" alt="Furniture 1" /></div>
+													<div class="carousel-slide"><img src="images/100 furniture spread.jpg" alt="Furniture 2" /></div>
+												</div>
+												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
+												<div class="carousel-indicators"></div>
+											</div>
+										</div>
+										<div class="mainline-group">
+											<h3>A Durable Fastener</h3>
+											<span class="image fit"><img src="images/100 Fastener.jpg" alt="" onclick="toggleExpanded(this)" /></span>
+										</div>
 									</section>
 								</div>
 							</div>
