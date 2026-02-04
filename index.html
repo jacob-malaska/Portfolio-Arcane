@@ -20,26 +20,28 @@
 
 			.gallery-item {
 				cursor: zoom-in;
-				transition: transform 0.3s ease;
+				transition: transform 0.3s ease, filter 0.3s ease;
 				overflow: hidden;
 			}
 
 			.gallery-item:hover {
 				transform: scale(1.03);
+				filter: saturate(1.15) contrast(1.05);
 			}
 
 			/* All clickable images */
 			.image.fit {
 				overflow: hidden;
+				transition: transform 0.3s ease, filter 0.3s ease;
 			}
 
 			.image.fit img {
 				cursor: zoom-in;
-				transition: transform 0.3s ease;
 			}
 
-			.image.fit:hover img {
+			.image.fit:hover {
 				transform: scale(1.02);
+				filter: saturate(1.15) contrast(1.05);
 			}
 
 
@@ -73,15 +75,17 @@
 				bottom: 0 !important;
 			}
 
-			/* Page layout width */
+			/* Page layout width - scales proportionally across resolutions */
 			#main .container {
-				max-width: 1200px;
+				max-width: clamp(700px, 55vw, 1200px);
 				width: 90%;
+				overflow-x: hidden;
 			}
 
-			/* Tablet/medium responsive margins */
+			/* Tablet responsive margins */
 			@media screen and (max-width: 980px) {
 				#main .container {
+					max-width: none;
 					width: 90%;
 					padding-left: 1.5em;
 					padding-right: 1.5em;
@@ -96,14 +100,15 @@
 			/* Mobile responsive margins */
 			@media screen and (max-width: 736px) {
 				#main .container {
-					width: 95%;
-					padding-left: 1.5em;
-					padding-right: 1.5em;
+					max-width: none;
+					width: 96%;
+					padding-left: 3em;
+					padding-right: 3em;
 				}
 
 				#main > section {
-					padding-left: 1.5em;
-					padding-right: 1.5em;
+					padding-left: 3em;
+					padding-right: 3em;
 				}
 			}
 
@@ -134,11 +139,12 @@
 				display: block;
 				object-fit: contain;
 				cursor: zoom-in;
-				transition: transform 0.3s ease;
+				transition: transform 0.3s ease, filter 0.3s ease;
 			}
 
 			.carousel-slide img:hover {
 				transform: scale(1.02);
+				filter: saturate(1.15) contrast(1.05);
 			}
 
 			.carousel-btn {
@@ -388,9 +394,9 @@
 												<button class="carousel-btn prev" onclick="carouselPrev(this)">&#10094;</button>
 												<div class="carousel-track">
 													<div class="carousel-slide"><img src="images/aviator hero 2.jpg" alt="Aviator hero" /></div>
-													<div class="carousel-slide"><img src="images/aviator photos (1).webp" alt="Aviator photos 1" /></div>
-													<div class="carousel-slide"><img src="images/aviator photos (2).webp" alt="Aviator photos 2" /></div>
-													<div class="carousel-slide"><img src="images/aviator photos (3).webp" alt="Aviator photos 3" /></div>
+													<div class="carousel-slide"><img src="images/aviator photos (2).jpg" alt="Aviator photos 2" /></div>
+													<div class="carousel-slide"><img src="images/aviator photos (3).jpg" alt="Aviator photos 3" /></div>
+													<div class="carousel-slide"><img src="images/aviator ui.png" alt="Aviator UI" /></div>
 													<div class="carousel-slide"><img src="images/Aviator900ANC_Black_1.webp" alt="Aviator 900 ANC Black" /></div>
 												</div>
 												<button class="carousel-btn next" onclick="carouselNext(this)">&#10095;</button>
@@ -441,6 +447,7 @@
 										</ul>
 										<h4>CONTRIBUTORS</h4>
 										<p><a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/kyle-arnett-1050b64a>Kyle Arnett</a><br />
+										<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/rachel-bodily-16a0a317b>Rachel Bodily</a><br />
 										<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/polluxpolaris>Pollux Polaris</a><br />
 										<a target="_blank" rel="noopener noreferrer" href=https://www.linkedin.com/in/andrew-philp-420177178>Andrew Philp</a>
 										</p>
