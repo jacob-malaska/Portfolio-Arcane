@@ -3,7 +3,11 @@
     "allow": [
       "Bash(tree:*)",
       "Bash(dir \"C:\\\\Users\\\\redma\\\\Documents\\\\Portfolio Arcane\\\\images\")",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd contributors Seth Richardson and Matthew Western to Aviator and Gaming sections\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nResponsive layout, hover effects, and updated aviator images\n\n- Container width now uses clamp\\(700px, 55vw, 1200px\\) for consistent sizing across 4K and 1080p\n- Mobile margins set to 3em, overflow-x hidden to prevent scrollbar on hover\n- Added saturate/contrast filter on image hover across gallery, carousel, and standalone images\n- Replaced old aviator webp photos with updated jpgs, added aviator ui.png to carousel\n- Added Rachel Bodily to Mainline contributors\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
