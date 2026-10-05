@@ -1826,6 +1826,7 @@ input[type=radio] + label:before {
 .image.fit img {
   display: block;
   width: 100%;
+  height: auto;
 }
 .image.avatar {
   display: block;
@@ -2308,6 +2309,7 @@ input[type=button]:disabled,
 #header > header .avatar img {
   display: block;
   width: 100%;
+  height: auto;
   -moz-transition: all 1s;
   -webkit-transition: all 1s;
   transition: all 1s;
